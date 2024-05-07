@@ -1,0 +1,37 @@
+<h3 class="text-center">{{ Titulo }}</h3>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        @for (columna of Columnas; track $index) {
+        <ng-container>
+          <th scope="col">{{ formatearNombreDeColomnas(columna) }}</th>
+        </ng-container>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of Data; track $index) {
+      <tr scope="row">
+        @for (columna of Columnas; track $index) { @if (isFecha(item[columna]))
+        {
+        <td>{{ item[columna] | date : "mediumDate" : "UTC" }}</td>
+        }@else {
+        <td>{{ item[columna] }}</td>
+
+        } }
+        <td>
+          <button
+            type="button"
+            class="btn btn-outline-info"
+            (click)="enviarInformacion(item)"
+          >
+            Info
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
