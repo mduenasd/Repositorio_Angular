@@ -54,7 +54,7 @@ export const MenuRoutes: MenuInfoInterface[] = [
   },
   {
     path: PATH.PRODUCTO,
-    title: 'Producto',
+    title: 'Ver Producto',
     icon: '',
     classCSS: '',
     SubMenu: [],
